@@ -14,12 +14,17 @@ USTRUCT(BlueprintType)
 struct FWarriorInputActionConfig
 {
 	GENERATED_BODY()
-	
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(Category="InputTag"))
 	FGameplayTag InputTag;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	UInputAction* InputAction;
+
+	bool IsValid() const
+	{
+		return InputTag.IsValid() && InputAction;
+	}
 };
 /**
  * 
@@ -34,7 +39,10 @@ public:
 	UInputMappingContext* DefaultMappingContext;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(TitleProperty="InputTag"))
-	TArray<FWarriorInputActionConfig> NativeInputAction;
+	TArray<FWarriorInputActionConfig> NativeInputActions;
 
 	UInputAction* FindNativeInputActionByTag(const FGameplayTag& InInputTag) const;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(TitleProperty="InputTag"))
+	TArray<FWarriorInputActionConfig> AbilityInputActions;
 };

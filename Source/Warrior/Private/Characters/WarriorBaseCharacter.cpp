@@ -1,7 +1,6 @@
 // Randy De Leon all rights reserved.
 
 #include "Characters/WarriorBaseCharacter.h"
-
 #include "AbilitySystem/WarriorAbilitySystemComponent.h"
 #include "AbilitySystem/WarriorAttributeSet.h"
 #include "Components/SkeletalMeshComponent.h"
